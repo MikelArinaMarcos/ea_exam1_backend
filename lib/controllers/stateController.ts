@@ -4,7 +4,7 @@ import StateService from '../models/states/service';
 import UserService from '../models/users/service';
 import e = require('express');
 
-export class CommentController {
+export class StateController {
 
     private state_service: StateService = new StateService();
     private user_service: UserService = new UserService();
