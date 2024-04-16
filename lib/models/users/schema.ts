@@ -13,7 +13,8 @@ const schema = new Schema({
     gender: String,
     activities: [{ type: Schema.Types.ObjectId, ref: 'activities' }], 
     comments: [{ type: Schema.Types.ObjectId, ref: 'comments' }],
-    active: Boolean
+    active: Boolean,
+    states: [{ type: Schema.Types.ObjectId, ref: 'states' }]
     }
 );
 
