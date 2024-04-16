@@ -13,4 +13,5 @@ export interface IUser {
     activities?: mongoose.Types.ObjectId[]; // Array to store post IDs
     comments?: mongoose.Types.ObjectId[]; // Array to store post IDs
     active: Boolean;
+    states: mongoose.Types.ObjectId[]; // Estado
 }

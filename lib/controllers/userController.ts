@@ -20,7 +20,8 @@ export class UserController {
                     email: req.body.email,
                     phone_number: req.body.phone_number,
                     gender: req.body.gender,
-                    active: true
+                    active: true,
+                    states: []
                 };
                 const user_data = await this.user_service.createUser(user_params);
                 return res.status(201).json({ message: 'User created successfully', user: user_data });
@@ -96,7 +97,8 @@ export class UserController {
                     email: req.body.email || user_data.email,
                     phone_number: req.body.phone_number || user_data.phone_number,
                     gender: req.body.gender || user_data.gender,
-                    active: true
+                    active: true,
+                    states: []
                 };
                 await this.user_service.updateUser(user_params, user_filter);
                 //get new user data

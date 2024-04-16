@@ -146,5 +146,29 @@ export default class UserService {
             return null;
         }
     }
+    
+    public async updateUserState(user_params: IUser, user_filter: any): Promise<void> {
+        try {
+            await users.findOneAndUpdate(user_filter, user_params);
+        } catch (error) {
+            throw error;
+        }
+    }
 
+    public async addStateToUser(userId: Types.ObjectId, stateId: Types.ObjectId): Promise<void> {
+        try {
+            // Retrieve the user document by ID
+            const user = await users.findById(userId);
+            if (!user) {
+                throw new Error('User not found');
+            }
+
+            // Add the state ID to the user's array of states
+            user.states.push(stateId);
+            // Save the updated user document
+            await user.save();
+        } catch (error) {
+            throw error;
+        }
+    }
 }
